@@ -462,7 +462,7 @@ section.homepage-hero{
 .contact-section {
   max-width: 1200px;
   overflow-y: hidden;
-  margin: 3rem auto;
+  margin: 2rem auto;
   
 }
 
@@ -489,7 +489,7 @@ section.homepage-hero{
 
 .contact-details {
   flex: 1.2;
-  padding: 50px;
+  padding: 2.5rem;
 }
 
 .contact-details h1 {
@@ -514,14 +514,14 @@ section.homepage-hero{
   font-size: 1.1rem;
   color: var(--muted);
   line-height: 1.6;
-  margin-bottom: 35px;
+  margin-bottom: 1.5rem;
 }
 
 .contact-info-list {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  margin-bottom: 35px;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .contact-info-item {
