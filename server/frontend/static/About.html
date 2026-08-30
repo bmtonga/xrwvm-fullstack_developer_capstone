@@ -8,8 +8,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/static/style.css">
   <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/style.css">
   <script>
 
     const logout = async (event) => {
@@ -48,7 +48,8 @@
   </script>
 </head>
 <body onload="checkSession()">
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(232, 245, 237); height: 1in; position: relative; z-index: 1050;">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <nav class="navbar navbar-expand-lg navbar-light site-navbar">
     <div class="container-fluid">
       <a href="/" class="logo">Dealerships</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -58,52 +59,50 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link " style="font-size: larger;" aria-current="page" href="/">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about/">About Us</a>
+            <a class="nav-link active" aria-current="page" href="/about/">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact/">Contact Us</a>
+            <a class="nav-link" href="/contact/">Contact Us</a>
           </li>
         </ul>
-        <span class="navbar-text">
+        <div class="navbar-text">
           <div class="loginlink" id="loginlogout">
           </div>
-        </span>
+        </div>
       </div>
     </div>
   </nav>
   
-    <section class="about-us-container">
+    <main id="main-content">
+      <section class="about-us-container">
       <div class="about-us-banner">
         <h1>About Us</h1>
       </div>
 
       <div class="our-story">
-        <p style="text-align: center; text-transform: uppercase; color: #DAA428; font-weight: 600; margin: 0; padding: 0;">Dedicated to Quality, Committed to Excellence</p>
+        <p class="about-us-eyebrow">Dedicated to Quality, Committed to Excellence</p>
         <h2 style="text-align: center; margin-bottom: 1em; padding: 0;">Our Story</h2>
-        <p class="text-center">Welcome to Best Cars dealership, home to the best cars in North America. 
-          We deal in selling domestic and imported cars at reasonable prices. We have a wide selection of new and used cars to choose from, 
-          and our friendly staff is always ready to help you find the perfect car for your needs.
-       Whether you're looking for a new or used car, 
-          we're confident that you'll find something you love at our dealership.</p>
+          <p class="text-center">Welcome to Best Cars dealership, home to a wide selection of domestic and imported vehicles at reasonable prices.</p>
+          <p class="text-center">Our friendly staff is ready to help you find the right new or used car for your needs, with clear guidance at every step.</p>
       </div>
 
       <div class="container-identity">
-        <div class="container-indetity-card">
+        <div class="container-identity-card">
           <h2 style="font-family: 'Fjalla One', sans-serif;">Mission</h2>
           <p>We are committed to providing a seamless and enjoyable car buying experience to our customers, 
             while offering a wide selection of new and used cars at reasonable prices.</p>
         </div>
 
-        <div class="container-indetity-card">
+        <div class="container-identity-card">
           <h2 style="font-family: 'Fjalla One', sans-serif;">Vision</h2>
           <p>We envision a car-buying experience where every customer can shop with confidence, clear information,
             and dependable support.</p>
         </div>
 
-        <div class="container-indetity-card">
+        <div class="container-identity-card">
           <h2 style="font-family: 'Fjalla One', sans-serif;">Values</h2>
           <p>We are committed to honesty and transparency in all our dealings. 
             We build long-term relationships with our customers. 
@@ -146,6 +145,7 @@
           their purchase, maintaining our industry-leading customer satisfaction ratings.</p>
       </div>
     </div>
-    </section>
+      </section>
+    </main>
 </body>
 </html>

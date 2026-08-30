@@ -1,8 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Space+Grotesk:wght@300..700&display=swap');
 
+:root {
+  --espresso: #2c0f01;
+  --sage: #e8f5ed;
+  --amber: #8a5b00;
+  --amber-light: #daa428;
+  --ink: #2d3330;
+  --muted: #59615c;
+  --border: #d9e2dc;
+  --navbar-height: 77px;
+}
+
 body{
   font-size: 1rem;
+  color: var(--ink);
 }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  background-color: var(--espresso);
+  color: white;
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  position: fixed;
+  top: -4rem;
+  z-index: 1100;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
 img{
   width: 60%;
   align-self: center;
@@ -10,8 +43,42 @@ img{
 .logo{
   font-family: 'Fjalla One', sans-serif;
   font-size: 30px;
-  color: rgb(44, 15, 1);
+  color: var(--espresso);
   text-decoration: none;
+}
+.site-navbar {
+  background-color: var(--sage);
+  padding: 1rem 1.5rem;
+  position: relative;
+  z-index: 1050;
+}
+
+.site-navbar .nav-link {
+  color: var(--espresso);
+  font-size: 1.125rem;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus-visible,
+.site-navbar .nav-link.active {
+  color: var(--espresso);
+  font-weight: 700;
+}
+
+@media (min-width: 992px) {
+  .site-navbar .container-fluid {
+    position: relative;
+  }
+
+  .site-navbar .navbar-collapse {
+    justify-content: flex-end;
+  }
+
+  .site-navbar .navbar-nav {
+    left: 50%;
+    position: absolute !important;
+    transform: translateX(-50%);
+  }
 }
 .card{
   border: rgb(103, 102, 105) 3px solid;
@@ -53,7 +120,7 @@ img{
 }
 
 .homepage_links{
-  color:  rgb(97, 64, 128);
+  color: var(--espresso);
   font-size: larger;
   margin-left: 20px;
   }
@@ -139,7 +206,12 @@ section.homepage-hero{
   background-image: linear-gradient(#00000052, #0000008e), url('Homepagebg.jpg');
   background-size: cover;
   background-position: center;
-  height: 88vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: calc(100svh - var(--navbar-height));
+  min-height: 0;
+  padding: 4rem 1rem;
 
 }
 .homepage-hero-content{
@@ -147,29 +219,78 @@ section.homepage-hero{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: calc(85vh - 350px);
 }
 .hero-text{
   font-family: 'Fjalla One', sans-serif;
   font-size: 3.5rem;
   letter-spacing: 1px;
 }
+.homepage-cta {
+  background-color: var(--sage);
+  color: var(--espresso);
+  font-weight: 600;
+  margin: 10px;
+  min-height: 44px;
+  padding: 10px 20px;
+}
+
+.homepage-cta:hover,
+.homepage-cta:focus-visible {
+  background-color: #d4e6da;
+  color: var(--espresso);
+}
+.homepage-hero-description {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+  max-width: 42rem;
+  text-align: center;
+}
 @media (max-width: 991.98px) {
+  .navbar-toggler {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .site-navbar {
+    min-height: 64px;
+    padding: 0.5rem 1rem;
+    }
+
+  :root {
+    --navbar-height: 64px;
+  }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .site-navbar .navbar-collapse {
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        width: 100%;
+        z-index: 1050;
+    }
+
     #navbarText {
-        background-color: rgb(232, 245, 237);
-        padding: 20px;
-        margin-top: 10px;
-        border-radius: 10px;
+      background-color: var(--sage);
+      border-top: 1px solid #c9d9cf;
+      margin-top: 0;
+      padding: 0.75rem 0;
+      box-shadow: 0 10px 18px rgba(44, 15, 1, 0.12);
     }
 
     #navbarText .nav-link {
-        padding: 10px 0;
+      min-height: 44px;
+      padding: 10px 0;
     }
 }
 .about-us-container{
   display: flex;
   flex-direction: column;
-  gap: 5em;
+  gap: 3rem;
 }
 .about-us-banner{
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('aboutusbg1.jpg');
@@ -196,10 +317,20 @@ section.homepage-hero{
 .our-story .text-center {
   margin: 0 auto;
   line-height: 1.5;
+  max-width: 68ch;
+  padding-inline: 1rem;
 }
 .our-story h2{
   font-family: 'Fjalla One', sans-serif;
   letter-spacing: 1px;
+}
+.about-us-eyebrow {
+  color: var(--amber);
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 .container-identity{
   display: flex;
@@ -210,20 +341,20 @@ section.homepage-hero{
   background-color: #f9f9f9;
   flex-wrap: wrap;
   gap: 1em;
+}
 
-.container-indetity-card{
+.container-identity-card{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   gap: 0.5em;
-  min-width:300px;
+  min-width: 0;
   padding: 1em;
   border-radius: .5em;
 }
-}
-.container-indetity-card h2{
+.container-identity-card h2{
   margin: 0;
   padding: 0;
 }
@@ -244,7 +375,7 @@ section.homepage-hero{
     width: 100%;
     margin: 0 auto;
   }
-  .container-indetity-card{
+  .container-identity-card{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -253,15 +384,15 @@ section.homepage-hero{
     width: 30%;
   }
   .our-story .text-center {
-    width: 75%;
-}
-.container-indetity-card p, .text-center{font-size: 1.25rem;}
+    width: auto;
+  }
+  .container-identity-card p, .text-center{font-size: 1.25rem;}
 
 }
 
 .team-members {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 30px;
   justify-content: center;
   width: 90%;
@@ -271,7 +402,7 @@ section.homepage-hero{
 
 .team-member {
   background: white;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border);
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -294,7 +425,7 @@ section.homepage-hero{
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 20px;
-  border: 4px solid rgb(232, 245, 237);
+  border: 4px solid var(--sage);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
@@ -307,7 +438,7 @@ section.homepage-hero{
 .team-member-name {
   font-family: 'Fjalla One', sans-serif;
   font-size: 1.35rem;
-  color: rgb(44, 15, 1);
+  color: var(--espresso);
   margin-bottom: 6px;
 }
 
@@ -315,7 +446,7 @@ section.homepage-hero{
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
-  color:  #DAA428;
+  color: var(--amber);
   margin-bottom: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -323,7 +454,7 @@ section.homepage-hero{
 
 .team-member-text {
   font-size: 0.95rem;
-  color: #555555;
+  color: var(--muted);
   line-height: 1.6;
 }
 
@@ -331,7 +462,7 @@ section.homepage-hero{
 .contact-section {
   max-width: 1200px;
   overflow-y: hidden;
-  margin: 5em auto;
+  margin: 3rem auto;
   
 }
 
@@ -342,7 +473,7 @@ section.homepage-hero{
   background: white;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border);
 }
 
 .contact-image {
@@ -363,7 +494,7 @@ section.homepage-hero{
 
 .contact-details h1 {
   font-family: 'Fjalla One', sans-serif;
-  color: rgb(44, 15, 1);
+  color: var(--espresso);
   font-size: 2.5rem;
   margin-bottom: 15px;
   position: relative;
@@ -374,14 +505,14 @@ section.homepage-hero{
   display: block;
   width: 60px;
   height: 4px;
-  background-color:  #DAA428;
+  background-color: var(--amber-light);
   margin-top: 10px;
   border-radius: 2px;
 }
 
 .contact-intro {
   font-size: 1.1rem;
-  color: #555;
+  color: var(--muted);
   line-height: 1.6;
   margin-bottom: 35px;
 }
@@ -415,36 +546,40 @@ section.homepage-hero{
 .info-content h3 {
   font-family: 'Fjalla One', sans-serif;
   font-size: 1.15rem;
-  color: rgb(44, 15, 1);
+  color: var(--espresso);
   margin: 0 0 5px 0;
 }
 
 .info-content p {
   margin: 0;
   font-size: 1.05rem;
-  color: #4a4a4a;
+  color: var(--muted);
 }
 
-.info-content a, .info-content p {
-  color: #DAA428;
+.info-content a {
+  align-items: center;
+  color: var(--amber);
+  display: inline-flex;
+  min-height: 44px;
   text-decoration: none;
   font-weight: 400;
   transition: color 0.2s ease;
 }
 
 .info-content a:hover {
-  color: rgb(44, 15, 1);
+  color: var(--espresso);
 }
 
 .contact-footer {
   font-size: 1.05rem;
   font-style: italic;
-  color: #666666b9;
+  color: var(--muted);
+  margin-top: 1.25rem;
 }
 
 .contact-cta {
   display: inline-block;
-  background-color: rgb(44, 15, 1);
+  background-color: var(--espresso);
   border-radius: 4px;
   color: white;
   font-weight: 600;
@@ -454,13 +589,13 @@ section.homepage-hero{
 
 .contact-cta:hover,
 .contact-cta:focus-visible {
-  background-color: #DAA428;
-  color: #1f0a00;
+  background-color: var(--amber-light);
+  color: var(--espresso);
 }
 
 @media (max-width: 991.98px) {
   .contact-section {
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
 
   .contact-container {
@@ -468,11 +603,23 @@ section.homepage-hero{
   }
 
   .contact-image {
-    flex: none;
-    min-height: 220px;
+    display: none;
   }
 
   .contact-details {
-    padding: 35px 25px;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .contact-details h1 {
+    font-size: 2rem;
+  }
+
+  .contact-intro {
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-info-list {
+    gap: 1rem;
+    margin-bottom: 1.25rem;
   }
 }
