@@ -1,8 +1,9 @@
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Best Cars Dealerships</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -12,7 +13,8 @@
   <link rel="stylesheet" href="/static/bootstrap.min.css">
   <script>
 
-    const logout = async (e) => {
+    const logout = async (event) => {
+      event?.preventDefault();
       //Include the code for logout here.
       // Build logout URL and Make GET request to logout endpoint
       let logout_url = window.location.origin + "/djangoapp/logout";
@@ -42,7 +44,7 @@
       if (curr_user && curr_user !== "") {
         document.getElementById("loginlogout").innerHTML =
           '<span class="homepage_links">' + curr_user + '</span>' +
-          '<a class="homepage_links" onclick="logout()" href="/">Logout</a>'
+          '<a class="homepage_links" onclick="logout(event)" href="/">Logout</a>'
       } else {
         document.getElementById("loginlogout").innerHTML =
           '<a class="homepage_links" href="/login">Login</a>' +
@@ -56,7 +58,7 @@
   <nav class="navbar navbar-expand-lg navbar-light"
     style="background-color:rgb(232, 245, 237); height: 1in; position: relative; z-index: 1050;">
     <div class="container-fluid">
-      <h2 style="padding-right: 5%;" class="logo">Dealerships</h2>
+      <a href="/" class="logo">Dealerships</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -84,7 +86,7 @@
 
   <section class="homepage-hero">
     <div class="homepage-hero-content">
-      <h5 class="text-white fw-bold fs-1 hero-text">Welcome to our Dealerships!</h5>
+      <h1 class="text-white fw-bold fs-1 hero-text">Welcome to our Dealerships!</h1>
       <a href="/dealers" class="btn" style="background-color:rgb(232, 245, 237);margin:10px; color:#333;">View
         Dealerships</a>
     </div>

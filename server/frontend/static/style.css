@@ -11,7 +11,7 @@ img{
   font-family: 'Fjalla One', sans-serif;
   font-size: 30px;
   color: rgb(44, 15, 1);
-  cursor: pointer;
+  text-decoration: none;
 }
 .card{
   border: rgb(103, 102, 105) 3px solid;
@@ -330,7 +330,6 @@ section.homepage-hero{
 /* Contact Us Section Styles */
 .contact-section {
   max-width: 1200px;
-  margin: 3em auto;
   overflow-y: hidden;
   margin: 5em auto;
   
@@ -443,9 +442,34 @@ section.homepage-hero{
   color: #666666b9;
 }
 
+.contact-cta {
+  display: inline-block;
+  background-color: rgb(44, 15, 1);
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  padding: 12px 20px;
+  text-decoration: none;
+}
+
+.contact-cta:hover,
+.contact-cta:focus-visible {
+  background-color: #DAA428;
+  color: #1f0a00;
+}
+
 @media (max-width: 991.98px) {
+  .contact-section {
+    margin: 2rem 0;
+  }
+
   .contact-container {
     flex-direction: column;
+  }
+
+  .contact-image {
+    flex: none;
+    min-height: 220px;
   }
 
   .contact-details {
