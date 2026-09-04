@@ -70,7 +70,7 @@ const Header = () => {
       >
         <div className="container-fluid">
 
-          <a className="logo" href="/dealers">
+          <a className="logo" href="/">
             Dealerships
           </a>
 
@@ -95,7 +95,7 @@ const Header = () => {
               <li className="nav-item">
                 <a
                   className={`nav-link ${location.pathname === "/" || location.pathname.startsWith("/dealers") || location.pathname.startsWith("/dealer/") ? "active" : ""}`}
-                  href="/dealers"
+                  href="/"
                 >
                   Home
                 </a>

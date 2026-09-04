@@ -6,7 +6,7 @@
 .dealers-content {
   margin: 0 auto;
   max-width: 1180px;
-  padding: clamp(2.5rem, 6vw, 5.5rem) clamp(1rem, 4vw, 3rem) 5rem;
+  padding: clamp(3rem, 7vw, 5.5rem) clamp(1rem, 4vw, 3rem) 5rem;
 }
 
 .dealers-heading {
@@ -14,7 +14,7 @@
   display: flex;
   gap: 2rem;
   justify-content: space-between;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .eyebrow {
@@ -106,7 +106,8 @@
 .dealers-table td {
   border-bottom: 1px solid var(--sage-green);
   color: var(--deep-green);
-  font-size: .95rem;
+  font-size: 1rem;
+  line-height: 1.5;
   padding: 1.1rem 1.25rem;
   text-align: left;
   vertical-align: middle;

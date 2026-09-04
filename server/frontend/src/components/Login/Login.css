@@ -50,7 +50,7 @@
 .login_panel .small_header {
   margin: 0 0 0.5rem 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.25;
@@ -64,8 +64,8 @@
 .login_panel .username {
   margin: 0 0 1.75rem 0;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.95rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
   font-weight: 400;
 
   color: var(--muted-text);
@@ -89,8 +89,8 @@
   color: var(--dark-text);
   border: none;
   border-radius: 9px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.95rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
 
   outline: none;
 
@@ -138,7 +138,7 @@
   background-color: var(--warm-gold);
   color: var(--deep-green);
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
   font-weight: 700;
 
@@ -277,7 +277,7 @@
    ========================================================= */
 
 .small_header {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
 

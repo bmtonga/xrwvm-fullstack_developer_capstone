@@ -11,16 +11,27 @@
   --ink: var(--deep-green);
   --muted: var(--deep-green);
   --border: var(--sage-green);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
 }
 
 body {
   color: var(--ink);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .site-navbar {
-  background-color: var(--sage);
-  padding: 1rem 1.5rem;
+  background-color: rgb(47 69 56 / 88%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgb(156 175 136 / 35%);
+  padding: var(--space-2) var(--space-3);
   position: relative;
   z-index: 1050;
 }
@@ -30,36 +41,42 @@ body {
 }
 
 .site-navbar .logo {
-  color: var(--espresso);
+  color: var(--off-white);
   font-family: 'Fjalla One', sans-serif;
   font-size: 30px;
   text-decoration: none;
 }
 
 .site-navbar .nav-link {
-  color: var(--espresso);
+  color: var(--off-white);
   font-size: 1.05rem;
 }
 
 .site-navbar.navbar-light .navbar-nav .nav-link {
-  color: var(--deep-green);
+  color: var(--off-white);
 }
 
 @media (min-width: 992px) {
+  .site-navbar .container-fluid {
+    position: relative;
+  }
+
   .site-navbar .navbar-collapse {
     justify-content: flex-end;
   }
 
   .site-navbar .navbar-nav {
-    margin-left: auto !important;
-    margin-right: 1.5rem;
+    left: 50%;
+    margin: 0 !important;
+    position: absolute !important;
+    transform: translateX(-50%);
   }
 }
 
 .site-navbar .nav-link:hover,
 .site-navbar .nav-link:focus-visible,
 .site-navbar .nav-link.active {
-  color: var(--espresso);
+  color: var(--warm-gold);
   font-weight: 700;
 }
 
@@ -71,14 +88,14 @@ body {
 }
 
 .site-navbar .username {
-  color: var(--espresso);
+  color: var(--off-white);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
   font-weight: 700;
 }
 
 .site-navbar .nav_item {
-  color: var(--amber);
+  color: var(--warm-gold);
   font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
@@ -86,7 +103,7 @@ body {
 
 .site-navbar .nav_item:hover,
 .site-navbar .nav_item:focus-visible {
-  color: var(--espresso);
+  color: var(--warm-gold);
 }
 
 img{
