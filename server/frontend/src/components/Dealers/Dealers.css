@@ -152,6 +152,10 @@
   text-decoration: none;
 }
 
+.review-link svg {
+  font-size: 1.1rem;
+}
+
 .review-link:hover,
 .review-link:focus-visible {
   color: var(--deep-green);

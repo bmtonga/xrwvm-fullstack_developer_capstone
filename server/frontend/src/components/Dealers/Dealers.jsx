@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import "./Dealers.css";
 import "../assets/style.css";
 import Header from '../Header/Header';
-import review_icon from "../assets/reviewicon.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Dealers = () => {
   const [dealersList, setDealersList] = useState([]);
@@ -102,7 +103,7 @@ const Dealers = () => {
                   <td data-label="Address">{dealer['address']}</td>
                   <td data-label="ZIP">{dealer['zip']}</td>
                   {isLoggedIn ? (
-                    <td data-label="Action"><a className="review-link" href={`/postreview/${dealer['id']}/`}><img src={review_icon} className="review_icon" alt="Post review" /> Review</a></td>
+                    <td data-label="Action"><a className="review-link" href={`/postreview/${dealer['id']}/`}><FontAwesomeIcon icon={faPenToSquare} aria-hidden="true" /> <span>Review</span></a></td>
                   ) : null}
                 </tr>
               ))}
