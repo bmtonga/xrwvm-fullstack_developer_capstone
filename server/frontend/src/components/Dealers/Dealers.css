@@ -160,6 +160,120 @@
 .review-link:focus-visible {
   color: var(--deep-green);
 }
+
+.post-review-page {
+  background: var(--off-white);
+  min-height: 100vh;
+}
+
+.post-review-content {
+  margin: 0 auto;
+  max-width: 860px;
+  padding: clamp(3rem, 7vw, 5.5rem) clamp(1rem, 4vw, 3rem) 5rem;
+}
+
+.post-review-heading {
+  margin-bottom: 2.5rem;
+  max-width: 42rem;
+}
+
+.post-review-heading h1 {
+  color: var(--deep-green);
+  font-family: 'Fjalla One', sans-serif;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.post-review-heading p:last-child {
+  color: var(--deep-green);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 1rem 0 0;
+  max-width: 42rem;
+}
+
+.review-form {
+  background: var(--off-white);
+  border: 1px solid var(--sage-green);
+  box-shadow: 0 14px 34px var(--sage-green);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.review-form-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.review-field {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.review-field label {
+  color: var(--deep-green);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.review-field textarea,
+.review-field input,
+.review-field select {
+  background: var(--off-white);
+  border: 1px solid var(--sage-green);
+  border-radius: 0;
+  box-sizing: border-box;
+  color: var(--deep-green);
+  font: inherit;
+  line-height: 1.5;
+  min-height: 48px;
+  padding: .75rem 1rem;
+  width: 100%;
+}
+
+.review-field textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.review-field textarea::placeholder,
+.review-field input::placeholder {
+  color: var(--deep-green);
+  opacity: .7;
+}
+
+.review-field textarea:focus,
+.review-field input:focus,
+.review-field select:focus {
+  border-color: var(--warm-gold);
+  box-shadow: 0 0 0 3px var(--sage-green);
+  outline: none;
+}
+
+.post-review-content .postreview {
+  background: var(--warm-gold);
+  border: 1px solid var(--warm-gold);
+  border-radius: 0;
+  color: var(--deep-green);
+  cursor: pointer;
+  font: 700 1rem 'Space Grotesk', sans-serif;
+  margin: 2rem 0 0;
+  min-height: 48px;
+  padding: .75rem 1.5rem;
+  width: 100%;
+}
+
+.post-review-content .postreview:hover,
+.post-review-content .postreview:focus-visible {
+  background: var(--deep-green);
+  color: var(--off-white);
+}
   
   .review_panel{
     display: flex;
@@ -227,6 +341,10 @@
 }
 
 @media (max-width: 700px) {
+  .review-form-grid {
+    grid-template-columns: 1fr;
+  }
+
   .dealers-heading {
     align-items: stretch;
     flex-direction: column;
