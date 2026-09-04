@@ -18,7 +18,7 @@ const Dealer = () => {
   let id = params.id;
   let dealer_url = `/djangoapp/dealer/${id}`;
   let reviews_url = `/djangoapp/reviews/dealer/${id}`;
-  let post_review = `/postreview/${id}`;
+  let post_review = `/postreview/${id}/`;
   
   const get_dealer = async () => {
     try {

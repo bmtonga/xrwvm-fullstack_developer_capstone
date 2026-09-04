@@ -189,7 +189,7 @@ const Register = () => {
 
           <div className="login_prompt">
             <span>Already have an account?</span>
-            <a href="/login">Login</a>
+            <a href="/login/">Login</a>
           </div>
         </form>
       </div>

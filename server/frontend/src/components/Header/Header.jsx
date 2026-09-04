@@ -6,6 +6,9 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Header = () => {
   const location = useLocation();
+  const staticOrigin = window.location.port === "3000"
+    ? "http://127.0.0.1:8000"
+    : "";
   const logout = async (e) => {
     e.preventDefault();
 
@@ -54,7 +57,7 @@ const Header = () => {
 
         <a
           className="nav_item"
-          href="/djangoapp/logout"
+          href="/"
           onClick={logout}
         >
           Logout
@@ -70,7 +73,7 @@ const Header = () => {
       >
         <div className="container-fluid">
 
-          <a className="logo" href="/">
+          <a className="logo" href={`${staticOrigin}/`}>
             Dealerships
           </a>
 
@@ -95,7 +98,7 @@ const Header = () => {
               <li className="nav-item">
                 <a
                   className={`nav-link ${location.pathname === "/" || location.pathname.startsWith("/dealers") || location.pathname.startsWith("/dealer/") ? "active" : ""}`}
-                  href="/"
+                  href={`${staticOrigin}/`}
                 >
                   Home
                 </a>
@@ -104,7 +107,7 @@ const Header = () => {
               <li className="nav-item">
                 <a
                   className={`nav-link ${location.pathname.startsWith("/about") ? "active" : ""}`}
-                  href="/about/"
+                  href={`${staticOrigin}/about/`}
                 >
                   About Us
                 </a>
@@ -113,7 +116,7 @@ const Header = () => {
               <li className="nav-item">
                 <a
                   className={`nav-link ${location.pathname.startsWith("/contact") ? "active" : ""}`}
-                  href="/contact/"
+                  href={`${staticOrigin}/contact/`}
                 >
                   Contact Us
                 </a>

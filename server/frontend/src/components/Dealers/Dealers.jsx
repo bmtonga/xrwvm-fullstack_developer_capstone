@@ -97,12 +97,12 @@ const Dealers = () => {
             <tbody>
               {dealersList.map((dealer) => (
                 <tr key={dealer['id']}>
-                  <td data-label="Dealer"><span className="dealer-id">#{dealer['id']}</span><a className="dealer-link" href={'/dealer/' + dealer['id']}>{dealer['full_name']}</a></td>
+                  <td data-label="Dealer"><span className="dealer-id">#{dealer['id']}</span><a className="dealer-link" href={'/dealer/' + dealer['id'] + '/'}>{dealer['full_name']}</a></td>
                   <td data-label="Location">{dealer['city']}<span className="state-name">{dealer['state']}</span></td>
                   <td data-label="Address">{dealer['address']}</td>
                   <td data-label="ZIP">{dealer['zip']}</td>
                   {isLoggedIn ? (
-                    <td data-label="Action"><a className="review-link" href={`/postreview/${dealer['id']}`}><img src={review_icon} className="review_icon" alt="Post review" /> Review</a></td>
+                    <td data-label="Action"><a className="review-link" href={`/postreview/${dealer['id']}/`}><img src={review_icon} className="review_icon" alt="Post review" /> Review</a></td>
                   ) : null}
                 </tr>
               ))}
