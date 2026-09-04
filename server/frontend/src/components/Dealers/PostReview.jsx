@@ -99,7 +99,7 @@ const PostReview = () => {
     <div>
       <Header />
       <div style={{ margin: "5%" }}>
-        <h1 style={{ color: "darkblue" }}>{dealer.full_name}</h1>
+        <h1>{dealer.full_name}</h1>
         <textarea
           id="review"
           cols="50"

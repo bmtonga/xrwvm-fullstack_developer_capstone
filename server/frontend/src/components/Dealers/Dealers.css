@@ -1,6 +1,6 @@
 .dealers-page {
   min-height: 100vh;
-  background: #f8faf8;
+  background: var(--off-white);
 }
 
 .dealers-content {
@@ -18,7 +18,7 @@
 }
 
 .eyebrow {
-  color: var(--amber);
+  color: var(--warm-gold);
   font-size: .8rem;
   font-weight: 700;
   letter-spacing: .08em;
@@ -27,7 +27,7 @@
 }
 
 .dealers-heading h1 {
-  color: var(--espresso);
+  color: var(--deep-green);
   font-family: 'Fjalla One', sans-serif;
   font-size: clamp(2.25rem, 5vw, 4rem);
   font-weight: 400;
@@ -36,7 +36,7 @@
 }
 
 .dealers-intro {
-  color: var(--muted);
+  color: var(--deep-green);
   margin: 1rem 0 0;
   max-width: 34rem;
 }
@@ -53,7 +53,7 @@
 }
 
 .state-filter select {
-  background: white;
+  background: var(--off-white);
   border: 1px solid var(--border);
   border-radius: 0;
   color: var(--ink);
@@ -64,23 +64,23 @@
 }
 
 .state-filter select:focus {
-  border-color: var(--amber);
-  box-shadow: 0 0 0 3px rgb(138 91 0 / 18%);
+  border-color: var(--warm-gold);
+  box-shadow: 0 0 0 3px var(--sage-green);
   outline: none;
 }
 
 .dealers-alert {
-  background: #fff4e2;
-  border-left: 4px solid var(--amber);
-  color: var(--espresso);
+  background: var(--sage-green);
+  border-left: 4px solid var(--warm-gold);
+  color: var(--deep-green);
   margin: 0 0 1.5rem;
   padding: 1rem;
 }
 
 .dealers-table-wrap {
-  background: white;
-  border: 1px solid var(--border);
-  box-shadow: 0 14px 34px rgb(45 51 48 / 8%);
+  background: var(--off-white);
+  border: 1px solid var(--sage-green);
+  box-shadow: 0 14px 34px var(--sage-green);
   overflow-x: auto;
 }
 
@@ -92,9 +92,9 @@
 }
 
 .dealers-table th {
-  background: var(--sage);
-  border-bottom: 1px solid var(--border);
-  color: var(--espresso);
+  background: var(--deep-green);
+  border-bottom: 1px solid var(--sage-green);
+  color: var(--off-white);
   font-size: .76rem;
   font-weight: 700;
   letter-spacing: .07em;
@@ -104,8 +104,8 @@
 }
 
 .dealers-table td {
-  border-bottom: 1px solid #edf1ee;
-  color: var(--muted);
+  border-bottom: 1px solid var(--sage-green);
+  color: var(--deep-green);
   font-size: .95rem;
   padding: 1.1rem 1.25rem;
   text-align: left;
@@ -117,12 +117,12 @@
 }
 
 .dealers-table tbody tr:hover {
-  background: #fbfdfb;
+  background: var(--sage-green);
 }
 
 .dealer-id,
 .state-name {
-  color: var(--muted);
+  color: var(--deep-green);
   display: block;
   font-size: .72rem;
   letter-spacing: .05em;
@@ -131,14 +131,14 @@
 }
 
 .dealer-link {
-  color: var(--espresso);
+  color: var(--deep-green);
   font-weight: 700;
   text-decoration: none;
 }
 
 .dealer-link:hover,
 .dealer-link:focus-visible {
-  color: var(--amber);
+  color: var(--warm-gold);
   text-decoration: underline;
 }
 
@@ -153,13 +153,13 @@
 
 .review-link:hover,
 .review-link:focus-visible {
-  color: var(--espresso);
+  color: var(--deep-green);
 }
   
   .review_panel{
     display: flex;
     flex-direction: column;
-    border: solid grey;
+    border: solid var(--deep-green);
     position: relative;
     height:7cm;
     width:6cm;
@@ -167,7 +167,7 @@
     padding:.3cm;
     padding-top: 0%;
     border-radius:10px; 
-    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 12px var(--sage-green);
     margin-bottom: .5cm;
     justify-content: space-between;
   }
@@ -191,7 +191,7 @@
   .reviewer {
     margin: 10px; /* Optional margin for spacing */
     font-style: italic;
-    color: gray;
+    color: var(--deep-green);
     font-size: small;
 }
 
@@ -204,11 +204,11 @@
   position:fixed;
     width:40px;
     height:40px;
-    background-color:#0C9;
-    color:#FFF;
+    background-color:var(--warm-gold);
+    color:var(--deep-green);
     border-radius:50px;
     text-align:center;
-    box-shadow: 2px 2px 3px #999;  
+    box-shadow: 2px 2px 3px var(--sage-green);
 }
 
 .review_icon {
@@ -256,9 +256,9 @@
   }
 
   .dealers-table tr {
-    background: white;
-    border: 1px solid var(--border);
-    box-shadow: 0 8px 20px rgb(45 51 48 / 6%);
+    background: var(--off-white);
+    border: 1px solid var(--sage-green);
+    box-shadow: 0 8px 20px var(--sage-green);
     margin-bottom: 1rem;
     padding: .4rem 0;
   }

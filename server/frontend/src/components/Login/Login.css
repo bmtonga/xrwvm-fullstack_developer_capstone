@@ -3,19 +3,19 @@
    ========================================================= */
 
 :root {
-  --deep-green: #0B3D2E;
-  --sage-green: #A8C3A0;
-  --light-sage: #E8F0E5;
-  --warm-gold: #D4A72C;
-  --soft-gold: #E6C766;
+  --deep-green: #2F4538;
+  --sage-green: #9CAF88;
+  --light-sage: #9CAF88;
+  --warm-gold: #D4A574;
+  --soft-gold: #D4A574;
 
-  --white: #FFFFFF;
-  --dark-text: #17352B;
-  --muted-text: #66756D;
+  --white: #FBFAF7;
+  --dark-text: #2F4538;
+  --muted-text: #2F4538;
 
-  --border-color: #C9D8C5;
-  --input-bg: #FFFFFF;
-  --gold-hover: #B88F20;
+  --border-color: #9CAF88;
+  --input-bg: #FBFAF7;
+  --gold-hover: #D4A574;
 }
 
 /* =========================================================
@@ -28,11 +28,11 @@
   padding: 2.5rem;
 
   background-color: var(--white);
-  border: 1px solid rgba(168, 195, 160, 0.45);
+  border: 1px solid var(--sage-green);
   border-radius: 10px;
 
   box-shadow:
-    0 8px 30px rgba(11, 61, 46, 0.08);
+    0 8px 30px var(--sage-green);
 
   display: flex;
   flex-direction: column;
@@ -100,7 +100,7 @@
 }
 
 .input_field {
-  background-color: #f9f9f9;
+  background-color: #FBFAF7;
 }
 
 /* Placeholder */
@@ -117,7 +117,7 @@
   border-color: var(--warm-gold);
 
   box-shadow:
-    0 0 0 3px rgba(212, 167, 44, 0.18);
+    0 0 0 3px var(--sage-green);
 }
 
 
@@ -164,7 +164,7 @@
 /* Button focus */
 
 .login_panel .action_button:focus-visible {
-  outline: 3px solid rgba(212, 167, 44, 0.35);
+  outline: 3px solid var(--warm-gold);
   outline-offset: 2px;
 }
 
