@@ -26,6 +26,7 @@ const Register = () => {
     try {
       const res = await fetch(register_url, {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -42,6 +43,8 @@ const Register = () => {
 
       if (json.status === "Authenticated") {
         sessionStorage.setItem("username", json.userName);
+        sessionStorage.setItem("firstname", json.firstName || '');
+        sessionStorage.setItem("lastname", json.lastName || '');
         window.location.href = window.location.origin;
       } else if (json.error === "Already Registered") {
         alert("The user with the same username is already registered.");

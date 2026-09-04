@@ -14,38 +14,39 @@ const Dealer = () => {
   const [unreviewed, setUnreviewed] = useState(false);
   const [postReview, setPostReview] = useState(<></>)
 
-  let curr_url = window.location.href;
-  let root_url = curr_url.substring(0, curr_url.indexOf("dealer"));
   let params = useParams();
   let id = params.id;
-  let dealer_url = root_url + `djangoapp/dealer/${id}`;
-  let reviews_url = root_url + `djangoapp/reviews/dealer/${id}`;
-  let post_review = root_url + `postreview/${id}`;
+  let dealer_url = `/djangoapp/dealer/${id}`;
+  let reviews_url = `/djangoapp/reviews/dealer/${id}`;
+  let post_review = `/postreview/${id}`;
   
   const get_dealer = async () => {
-    const res = await fetch(dealer_url, {
-      method: "GET"
-    });
-    const retobj = await res.json();
-    
-    if (retobj.status === 200) {
-      let dealerobjs = Array.from(retobj.dealer)
-      setDealer(dealerobjs[0])
+    try {
+      const res = await fetch(dealer_url, { method: "GET" });
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+      const retobj = await res.json();
+      if (retobj.status !== 200 || !Array.isArray(retobj.dealer)) throw new Error(retobj.message || "Dealer unavailable");
+      setDealer(retobj.dealer[0] || {});
+    } catch (error) {
+      console.error("Error fetching dealer:", error);
     }
   }
 
   const get_reviews = async () => {
-    const res = await fetch(reviews_url, {
-      method: "GET"
-    });
-    const retobj = await res.json();
-    
-    if (retobj.status === 200) {
+    try {
+      const res = await fetch(reviews_url, { method: "GET" });
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+      const retobj = await res.json();
+      if (retobj.status === 200 && Array.isArray(retobj.reviews)) {
       if (retobj.reviews.length > 0) {
         setReviews(retobj.reviews)
       } else {
         setUnreviewed(true);
       }
+      } else throw new Error(retobj.message || "Reviews unavailable");
+    } catch (error) {
+      console.error("Error fetching reviews:", error);
+      setUnreviewed(true);
     }
   }
 

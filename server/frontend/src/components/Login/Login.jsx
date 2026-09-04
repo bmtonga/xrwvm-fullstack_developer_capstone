@@ -15,6 +15,7 @@ const Login = ({ onClose }) => {
     try {
       const res = await fetch(login_url, {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -27,6 +28,8 @@ const Login = ({ onClose }) => {
       const json = await res.json();
       if (json.status != null && json.status === "Authenticated") {
         sessionStorage.setItem('username', json.userName);
+        sessionStorage.setItem('firstname', json.firstName || '');
+        sessionStorage.setItem('lastname', json.lastName || '');
         setOpen(false);
       } else {
         alert("The user could not be authenticated.");

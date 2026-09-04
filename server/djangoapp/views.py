@@ -30,6 +30,8 @@ def login_user(request):
             request.session.save()
             return JsonResponse({
                 "userName": username,
+                "firstName": user.first_name,
+                "lastName": user.last_name,
                 "status": "Authenticated"
             })
         else:
@@ -79,6 +81,8 @@ def registration(request):
         request.session.save()
         return JsonResponse({
             "userName": username,
+            "firstName": first_name,
+            "lastName": last_name,
             "status": "Authenticated"
         })
     except json.JSONDecodeError:
@@ -112,6 +116,11 @@ def get_dealerships(request, state="All"):
         endpoint = f"/fetchDealers/{state}"
 
     dealerships = get_request(endpoint)
+    if not isinstance(dealerships, list):
+        return JsonResponse(
+            {"status": 502, "message": "Dealership service unavailable", "dealers": []},
+            status=502,
+        )
     return JsonResponse({"status": 200, "dealers": dealerships})
 
 
@@ -120,6 +129,11 @@ def get_dealer_reviews(request, dealer_id):
     if dealer_id:
         endpoint = f"/fetchReviews/dealer/{dealer_id}"
         reviews = get_request(endpoint)
+        if not isinstance(reviews, list):
+            return JsonResponse(
+                {"status": 502, "message": "Review service unavailable", "reviews": []},
+                status=502,
+            )
         if reviews:
             for review_detail in reviews:
                 response = analyze_review_sentiments(review_detail.get('review', ''))
@@ -135,6 +149,11 @@ def get_dealer_details(request, dealer_id):
     if dealer_id:
         endpoint = f"/fetchDealer/{dealer_id}"
         dealership = get_request(endpoint)
+        if not isinstance(dealership, list):
+            return JsonResponse(
+                {"status": 502, "message": "Dealership service unavailable", "dealer": []},
+                status=502,
+            )
         return JsonResponse({"status": 200, "dealer": dealership})
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
@@ -143,10 +162,15 @@ def get_dealer_details(request, dealer_id):
 @csrf_exempt
 def add_review(request):
     """Submit a review for a dealer."""
-    if not request.user.is_anonymous:
+    if request.user.is_authenticated:
         try:
             data = json.loads(request.body)
             response = post_review(data)
+            if not isinstance(response, dict) or response.get("status") == 500:
+                return JsonResponse(
+                    {"status": 502, "message": "Review service unavailable"},
+                    status=502,
+                )
             return JsonResponse({"status": 200, "response": response})
         except Exception as e:
             logger.error(f"Error posting review: {e}")

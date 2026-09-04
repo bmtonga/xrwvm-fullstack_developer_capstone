@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const fs = require('fs');
+const path = require('path');
 const cors = require('cors');
 
 const app = express();
@@ -13,11 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 
 // Load JSON data
 const reviews_data = JSON.parse(
-  fs.readFileSync('./reviews.json', 'utf8')
+  fs.readFileSync(path.join(__dirname, 'data', 'reviews.json'), 'utf8')
 );
 
 const dealerships_data = JSON.parse(
-  fs.readFileSync('./dealerships.json', 'utf8')
+  fs.readFileSync(path.join(__dirname, 'data', 'dealerships.json'), 'utf8')
 );
 
 // Models
@@ -26,7 +27,7 @@ const Dealerships = require('./dealership');
 
 // MongoDB connection
 mongoose
-  .connect('mongodb://mongo_db:27017/', {
+  .connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/', {
     dbName: 'dealershipsDB'
   })
   .then(async () => {

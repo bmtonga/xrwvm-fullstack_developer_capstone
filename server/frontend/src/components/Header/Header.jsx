@@ -1,9 +1,11 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "../assets/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Header = () => {
+  const location = useLocation();
   const logout = async (e) => {
     e.preventDefault();
 
@@ -12,6 +14,7 @@ const Header = () => {
     try {
       const res = await fetch(logoutUrl, {
         method: "GET",
+        credentials: "include",
       });
 
       const json = await res.json();
@@ -20,6 +23,8 @@ const Header = () => {
         const username = sessionStorage.getItem("username");
 
         sessionStorage.removeItem("username");
+        sessionStorage.removeItem("firstname");
+        sessionStorage.removeItem("lastname");
 
         alert("Logging out " + username + "...");
 
@@ -61,19 +66,13 @@ const Header = () => {
   return (
     <div>
       <nav
-        className="navbar navbar-expand-lg navbar-light"
-        style={{
-          backgroundColor: "rgb(232, 245, 237)",
-          position: "relative",
-          zIndex: 1050,
-          padding: "2%",
-        }}
+        className="navbar navbar-expand-lg navbar-light site-navbar"
       >
         <div className="container-fluid">
 
-          <h2 style={{ paddingRight: "5%" }}>
+          <a className="logo" href="/dealers">
             Dealerships
-          </h2>
+          </a>
 
           <button
             className="navbar-toggler"
@@ -95,8 +94,8 @@ const Header = () => {
 
               <li className="nav-item">
                 <a
-                  className="nav-link active"
-                  href="/"
+                  className={`nav-link ${location.pathname === "/" || location.pathname.startsWith("/dealers") || location.pathname.startsWith("/dealer/") ? "active" : ""}`}
+                  href="/dealers"
                 >
                   Home
                 </a>
@@ -104,8 +103,8 @@ const Header = () => {
 
               <li className="nav-item">
                 <a
-                  className="nav-link"
-                  href="/about"
+                  className={`nav-link ${location.pathname.startsWith("/about") ? "active" : ""}`}
+                  href="/about/"
                 >
                   About Us
                 </a>
@@ -113,8 +112,8 @@ const Header = () => {
 
               <li className="nav-item">
                 <a
-                  className="nav-link"
-                  href="/contact"
+                  className={`nav-link ${location.pathname.startsWith("/contact") ? "active" : ""}`}
+                  href="/contact/"
                 >
                   Contact Us
                 </a>

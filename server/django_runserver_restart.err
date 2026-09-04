@@ -1,0 +1,4 @@
+Watching for file changes with StatReloader
+Network exception occurred during GET: 404 Client Error: Not Found for url: https://bernardmtong-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers
+Bad Gateway: /djangoapp/get_dealers
+[04/Sep/2026 19:32:11] "GET /djangoapp/get_dealers HTTP/1.1" 502 75

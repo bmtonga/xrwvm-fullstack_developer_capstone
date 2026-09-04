@@ -13,11 +13,14 @@ services:
 
   # Node api service
   api:
+    build: .
     image: nodeapp
     ports:
       - 3030:3030
     depends_on: 
       - mongo_db
+    environment:
+      MONGODB_URL: mongodb://mongo_db:27017/
 
 volumes:
   mongo_data: {}

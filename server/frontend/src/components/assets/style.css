@@ -1,3 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+  --espresso: #2c0f01;
+  --sage: #e8f5ed;
+  --amber: #8a5b00;
+  --ink: #2d3330;
+  --muted: #59615c;
+  --border: #d9e2dc;
+}
+
+body {
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.site-navbar {
+  background-color: var(--sage);
+  padding: 1rem 1.5rem;
+  position: relative;
+  z-index: 1050;
+}
+
+.site-navbar .container-fluid {
+  align-items: center;
+}
+
+.site-navbar .logo {
+  color: var(--espresso);
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.site-navbar .nav-link {
+  color: var(--espresso);
+  font-size: 1.05rem;
+}
+
+@media (min-width: 992px) {
+  .site-navbar .navbar-collapse {
+    justify-content: flex-end;
+  }
+
+  .site-navbar .navbar-nav {
+    margin-left: auto !important;
+    margin-right: 1.5rem;
+  }
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus-visible,
+.site-navbar .nav-link.active {
+  color: var(--espresso);
+  font-weight: 700;
+}
+
+.site-navbar .nav-link:focus-visible,
+.site-navbar .logo:focus-visible,
+.site-navbar .nav_item:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+.site-navbar .username {
+  color: var(--espresso);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.site-navbar .nav_item {
+  color: var(--amber);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-navbar .nav_item:hover,
+.site-navbar .nav_item:focus-visible {
+  color: var(--espresso);
+}
+
 img{
   width: 60%;
   align-self: center;
