@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFaceSmile, faFaceMeh, faFaceFrown } from '@fortawesome/free-solid-svg-icons';
 import "./Dealers.css";
 import "../assets/style.css";
-import positive_icon from "../assets/positive.png"
-import neutral_icon from "../assets/neutral.png"
-import negative_icon from "../assets/negative.png"
 import review_icon from "../assets/reviewbutton.png"
 import Header from '../Header/Header';
 
@@ -19,6 +18,24 @@ const Dealer = () => {
   let dealer_url = `/djangoapp/dealer/${id}`;
   let reviews_url = `/djangoapp/reviews/dealer/${id}`;
   let post_review = `/postreview/${id}/`;
+
+  const sentimentMeta = {
+    positive: {
+      icon: faFaceSmile,
+      label: 'Positive',
+      className: 'sentiment-positive'
+    },
+    neutral: {
+      icon: faFaceMeh,
+      label: 'Neutral',
+      className: 'sentiment-neutral'
+    },
+    negative: {
+      icon: faFaceFrown,
+      label: 'Negative',
+      className: 'sentiment-negative'
+    }
+  };
   
   const get_dealer = async () => {
     try {
@@ -50,10 +67,10 @@ const Dealer = () => {
     }
   }
 
-  const senti_icon = (sentiment) => {
-    let icon = sentiment === "positive" ? positive_icon : sentiment === "negative" ? negative_icon : neutral_icon;
-    return icon;
-  }
+  const sentimentInfo = (sentiment) => {
+    const normalized = (sentiment || '').toLowerCase();
+    return sentimentMeta[normalized] || sentimentMeta.neutral;
+  };
 
   useEffect(() => {
     get_dealer();
@@ -75,15 +92,24 @@ const Dealer = () => {
         {reviews.length === 0 && unreviewed === false ? (
           <span>Loading Reviews....</span>
         ) : unreviewed === true ? (
-          <div>No reviews yet! </div>
+          <div className="reviews-empty">No reviews yet!</div>
         ) : (
-          reviews.map((review, index) => (
-            <div key={index} className='review_panel'>
-              <img src={senti_icon(review.sentiment)} className="emotion_icon" alt='Sentiment' />
-              <div className='review'>{review.review}</div>
-              <div className="reviewer">{review.name} {review.car_make} {review.car_model} {review.car_year}</div>
-            </div>
-          ))
+          reviews.map((review, index) => {
+            const meta = sentimentInfo(review.sentiment);
+            return (
+              <article key={index} className='review_panel'>
+                <div className='review-header'>
+                  <span className='review-badge'>Review</span>
+                  <span className={`sentiment-pill ${meta.className}`}>
+                    <FontAwesomeIcon icon={meta.icon} />
+                    <span>{meta.label}</span>
+                  </span>
+                </div>
+                <div className='review'>{review.review}</div>
+                <div className="reviewer">{review.name} · {review.car_make} {review.car_model} {review.car_year}</div>
+              </article>
+            )
+          })
         )}
       </div>  
     </div>
