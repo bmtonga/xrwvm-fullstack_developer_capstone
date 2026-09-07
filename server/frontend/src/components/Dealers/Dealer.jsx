@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFaceSmile, faFaceMeh, faFaceFrown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faFaceSmile, faFaceMeh, faFaceFrown } from '@fortawesome/free-solid-svg-icons';
 import "./Dealers.css";
 import "../assets/style.css";
 import review_icon from "../assets/reviewbutton.png"
@@ -82,9 +82,13 @@ const Dealer = () => {
   }, []);  
 
   return (
-    <div style={{ margin: "20px" }}>
+    <div className="dealer-page">
       <Header />
-      <div style={{ marginTop: "10px" }}>
+      <div className="dealer-content">
+        <Link className="back-to-dealers" to="/dealers/">
+          <FontAwesomeIcon icon={faArrowLeft} aria-hidden="true" />
+          <span>Back to dealerships</span>
+        </Link>
         <h1>{dealer.full_name}{postReview}</h1>
         <h4>{dealer['city']},{dealer['address']}, Zip - {dealer['zip']}, {dealer['state']} </h4>
       </div>
