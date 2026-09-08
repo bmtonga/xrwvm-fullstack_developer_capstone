@@ -84,6 +84,51 @@ img{
   font-weight: 700;
 }
 
+.site-navbar .navbar-text,
+.site-navbar .loginlink {
+  align-items: center;
+  display: flex;
+}
+
+.site-navbar .homepage_links {
+  align-items: center;
+  color: rgb(251 250 247 / 78%);
+  display: inline-flex;
+  font-size: .86rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  min-height: 40px;
+  padding: .5rem .75rem;
+  text-decoration: none;
+}
+
+.site-navbar a.homepage_links {
+  background-color: var(--warm-gold);
+  border: 1px solid var(--warm-gold);
+  border-radius: 999px;
+  color: var(--deep-green);
+  justify-content: center;
+  margin-left: .5rem;
+  min-width: 5rem;
+}
+
+.site-navbar a.homepage_links:hover,
+.site-navbar a.homepage_links:focus-visible {
+  background-color: transparent;
+  color: var(--warm-gold);
+}
+
+.site-navbar #loginlogout a.homepage_links:last-child {
+  background-color: transparent;
+  color: var(--warm-gold);
+}
+
+.site-navbar #loginlogout a.homepage_links:last-child:hover,
+.site-navbar #loginlogout a.homepage_links:last-child:focus-visible {
+  background-color: var(--warm-gold);
+  color: var(--deep-green);
+}
+
 @media (min-width: 992px) {
   .site-navbar .container-fluid {
     position: relative;
@@ -347,6 +392,20 @@ section.homepage-hero{
     #navbarText .nav-link:focus-visible,
     #navbarText .nav-link.active {
       background-color: rgb(156 175 136 / 18%);
+    }
+
+    #navbarText .navbar-text,
+    #navbarText .loginlink {
+      align-items: stretch;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    #navbarText .homepage_links,
+    #navbarText a.homepage_links {
+      border-radius: 8px;
+      margin-left: 0;
+      width: 100%;
     }
 }
 .about-us-container{
