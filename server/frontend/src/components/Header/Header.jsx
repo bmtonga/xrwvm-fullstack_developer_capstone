@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../assets/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Header = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
   const staticOrigin = window.location.port === "3000"
     ? "http://127.0.0.1:8000"
@@ -80,17 +81,16 @@ const Header = () => {
           <button
             className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarText"
             aria-controls="navbarText"
-            aria-expanded="false"
+            aria-expanded={isNavOpen}
             aria-label="Toggle navigation"
+            onClick={() => setIsNavOpen((isOpen) => !isOpen)}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
           <div
-            className="collapse navbar-collapse"
+            className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}
             id="navbarText"
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -99,6 +99,7 @@ const Header = () => {
                 <a
                   className={`nav-link ${location.pathname === "/" || location.pathname.startsWith("/dealers") || location.pathname.startsWith("/dealer/") ? "active" : ""}`}
                   href={`${staticOrigin}/`}
+                  onClick={() => setIsNavOpen(false)}
                 >
                   Home
                 </a>
@@ -108,6 +109,7 @@ const Header = () => {
                 <a
                   className={`nav-link ${location.pathname.startsWith("/about") ? "active" : ""}`}
                   href={`${staticOrigin}/about/`}
+                  onClick={() => setIsNavOpen(false)}
                 >
                   About Us
                 </a>
@@ -117,6 +119,7 @@ const Header = () => {
                 <a
                   className={`nav-link ${location.pathname.startsWith("/contact") ? "active" : ""}`}
                   href={`${staticOrigin}/contact/`}
+                  onClick={() => setIsNavOpen(false)}
                 >
                   Contact Us
                 </a>

@@ -289,26 +289,64 @@ section.homepage-hero{
     }
 
     .site-navbar .navbar-collapse {
-        left: 0;
+        background-color: var(--deep-green);
+        border-left: 1px solid var(--sage-green);
+        box-shadow: -12px 12px 24px rgb(18 52 44 / 22%);
+        display: block;
+        height: auto !important;
+        max-height: calc(100vh - 64px);
+        overflow-y: auto;
         position: absolute;
         right: 0;
         top: 100%;
-        width: 100%;
+        transform: translateX(0);
+        transition: transform 250ms ease, visibility 0s linear 250ms;
+        width: min(82vw, 320px);
         z-index: 1050;
     }
 
+    .site-navbar .navbar-collapse.collapse:not(.show) {
+      display: block;
+      pointer-events: none;
+      transform: translateX(100%);
+      visibility: hidden;
+    }
+
+    .site-navbar .navbar-collapse.collapsing {
+      display: block;
+      height: auto !important;
+      overflow: hidden;
+      transform: translateX(0);
+      transition: transform 250ms ease;
+    }
+
     #navbarText {
-      background-color: var(--deep-green);
       border-top: 1px solid var(--sage-green);
-      margin-top: 0;
-      padding: 0.75rem 0;
-      box-shadow: 0 10px 18px var(--sage-green);
+      padding: 1rem;
+    }
+
+    #navbarText .navbar-nav {
+      align-items: stretch;
+      gap: .25rem;
+      margin: 0 !important;
+    }
+
+    #navbarText .nav-item,
+    #navbarText .nav-link {
+      width: 100%;
     }
 
     #navbarText .nav-link {
+      border-radius: 8px;
       color: var(--off-white);
       min-height: 44px;
-      padding: 10px 0;
+      padding: .7rem .85rem;
+    }
+
+    #navbarText .nav-link:hover,
+    #navbarText .nav-link:focus-visible,
+    #navbarText .nav-link.active {
+      background-color: rgb(156 175 136 / 18%);
     }
 }
 .about-us-container{
